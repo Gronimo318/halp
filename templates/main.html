@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваш заголовок</title>
+    <style>
+        body {
+            margin: 0 auto;
+            max-width: 1000px;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s, color 0.5s; /* Плавное изменение цветов */
+        }
+
+        .navigation-bar {
+            background-color: #808080;
+            overflow: hidden;
+        }
+
+        .navigation-bar a {
+            float: left;
+            display: block;
+            color: #ffffff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .sidebar {
+            width: 300px;
+            background-color: #ffA500;
+            background-size: cover;
+            padding: 20px;
+        }
+
+        .main-content {
+            width: 700px;
+            border: 2px solid silver;
+
+
+        }
+
+        /* Стили для тумблера темного режима */
+        .dark-mode-toggle {
+            Float: right ;
+            flex:initial;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .toggle-label {
+            margin-right: 5px;
+        }
+
+        .toggle-checkbox {
+            appearance: none;
+            width: 40px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 10px;
+            position: relative;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .toggle-checkbox::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            transition: transform 0.3s;
+        }
+
+        .toggle-checkbox:checked::before {
+            transform: translateX(20px);
+            background-color: #37d237;
+        }
+        .toggle-checkbox:checked{
+            background-color: #54ecfa;
+        }
+
+        /* Стили для активного темного режима */
+        .tb{
+            width: auto;
+        }
+        .main{
+            width: 900px;
+            padding: 30px;
+        }
+        .tumb{
+            display: flex;
+            align-items: center;
+        }
+        span{
+            display: block;
+            line-height: 30px;
+            font-weight:700;
+
+            
+        }
+        .grafs{
+            display: block;
+            width: 700px;
+            height:  500px;
+            background-color: #ccc;
+            margin-top: 20px;
+
+        }
+        .bod{
+            display: flex;
+        }
+            
+        
+    </style>
+</head>
+<body>
+
+
+    <div class="navigation-bar">
+        <a href="#график">График</a>
+        <a href="#о-нас">О нас</a>
+        <a href="#описание">Описание</a>
+        <a href="#рекомендации">Рекомендации</a>
+    </div>
+<div class="bod">   
+    
+        <div class="sidebar">
+            <form action="/" method="post">
+    
+                <div class="tumb">
+                    <span class="toggle-label">отладка</span>
+                    <span class="toggle-label">выкл</span>
+                    <input type="checkbox" class="toggle-checkbox" id="darkModeToggle">
+                    <span class="toggle-label">вкл</span>
+                </div>
+                <div class="tb">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Свет 1</th>
+                                    <th><input type="checkbox" class="toggle-checkbox" id="darkModeToggle"name="S1"></th>
+                                </tr>
+                                <tr>
+                                    <th>Свет 2</th>
+                                    <th><input type="checkbox" class="toggle-checkbox" id="darkModeToggle"name="S2"></th>
+                                </tr>
+                                <tr>
+                                    <th>Свет 3</th>
+                                    <th><input type="checkbox" class="toggle-checkbox" id="darkModeToggle"name="S3"></th>
+                                </tr>
+                                <tr>
+                                    <th>Полив</th>
+                                    <th><input type="checkbox" class="toggle-checkbox" id="darkModeToggle"name="pomp"></th>
+                                </tr>
+                                <tr>
+                                    <th>Раствор 1</th>
+                                    <th><input type="checkbox" class="toggle-checkbox" id="darkModeToggle"name="A"></th>
+                                </tr>
+                                <tr>
+                                    <th>Раствор 2</th>
+                                    <th><input type="checkbox" class="toggle-checkbox" id="darkModeToggle"name="B"></th>
+                                </tr>
+                                <tr>
+                                    <th>Раствор 3</th>
+                                    <th><input type="checkbox" class="toggle-checkbox" id="darkModeToggle"name="C"></th>
+                                </tr>
+                                <tr>
+                                    <th>Раствор 4</th>
+                                    <th><input type="checkbox" class="toggle-checkbox" id="darkModeToggle" name="D"></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    
+                </div>
+            </form>
+        </div>
+        
+        <div class="main-content">
+            <form action="checkbox-form.php" method="post" >
+
+                <div class="dark-mode-toggle">
+                    <span class="toggle-label">режим работы:</span>
+                    <span>ручной</span>
+                    <input type="checkbox" class="toggle-checkbox" id="darkModeToggle" name="avt_ruc" value="avt_ruc">
+                    <span>автоматический</span>
+                </div>
+                <div class="main">
+                    {% block main %}
+                    {% endblock %}
+                </div>
+            </form>
+        </div>
+</div>
+
+
+<!--<script>
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    darkModeToggle.addEventListener('change', () => {
+        body.classList.toggle('dark-mode', darkModeToggle.checked);
+    });
+</script>-->
+
+</body>
+</html>
